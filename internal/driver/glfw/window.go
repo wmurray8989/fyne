@@ -1059,8 +1059,8 @@ func (w *window) waitForEvents() {
 	w.eventWait.Wait()
 }
 
-func (d *gLDriver) CreateWindow(title string) fyne.Window {
-	return d.createWindow(title, true)
+func (d *gLDriver) CreateWindow(title string, decorate bool) fyne.Window {
+	return d.createWindow(title, decorate)
 }
 
 func (d *gLDriver) createWindow(title string, decorate bool) fyne.Window {
@@ -1070,6 +1070,8 @@ func (d *gLDriver) createWindow(title string, decorate bool) fyne.Window {
 	}
 	runOnMain(func() {
 		initOnce.Do(d.initGLFW)
+
+		glfw.WindowHint(glfw.TransparentFramebuffer, 1)
 
 		// make the window hidden, we will set it up and then show it later
 		glfw.WindowHint(glfw.Visible, 0)

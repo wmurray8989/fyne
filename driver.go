@@ -4,7 +4,7 @@ package fyne
 // Any implementation must provide at least these methods.
 type Driver interface {
 	// Create a new UI Window.
-	CreateWindow(string) Window
+	CreateWindow(string, bool) Window
 	// Get a slice containing all app windows.
 	AllWindows() []Window
 
