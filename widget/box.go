@@ -59,7 +59,8 @@ func (b *Box) CreateRenderer() fyne.WidgetRenderer {
 	return &boxRenderer{objects: b.Children, layout: lay, box: b}
 }
 
-func (b *Box) setBackgroundColor(bg color.Color) {
+// SetBackgroundColor sets the background color of the box widget
+func (b *Box) SetBackgroundColor(bg color.Color) {
 	b.background = bg
 }
 
