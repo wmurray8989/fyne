@@ -71,12 +71,12 @@ func DialogScreen(win fyne.Window) fyne.CanvasObject {
 
 	windowGroup := widget.NewGroup("Windows",
 		widget.NewButton("New window", func() {
-			w := fyne.CurrentApp().NewWindow("Hello")
+			w := fyne.CurrentApp().NewWindow("Hello", true)
 			w.SetContent(widget.NewLabel("Hello World!"))
 			w.Show()
 		}),
 		widget.NewButton("Fixed size window", func() {
-			w := fyne.CurrentApp().NewWindow("Fixed")
+			w := fyne.CurrentApp().NewWindow("Fixed", true)
 			w.SetContent(fyne.NewContainerWithLayout(layout.NewCenterLayout(), widget.NewLabel("Hello World!")))
 
 			w.Resize(fyne.NewSize(240, 180))
@@ -84,7 +84,7 @@ func DialogScreen(win fyne.Window) fyne.CanvasObject {
 			w.Show()
 		}),
 		widget.NewButton("Centered window", func() {
-			w := fyne.CurrentApp().NewWindow("Central")
+			w := fyne.CurrentApp().NewWindow("Central", true)
 			w.SetContent(fyne.NewContainerWithLayout(layout.NewCenterLayout(), widget.NewLabel("Hello World!")))
 
 			w.CenterOnScreen()
