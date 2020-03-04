@@ -114,6 +114,18 @@ func (w *window) SetFullScreen(full bool) {
 	})
 }
 
+func (w *window) Opacity() float32 {
+	return w.viewport.GetOpacity()
+}
+
+func (w *window) SetOpacity(opacity float32) {
+	w.viewport.SetOpacity(opacity)
+}
+
+func (w *window) SetPosition(xpos int, ypos int) {
+	w.viewport.SetPos(xpos, ypos)
+}
+
 func (w *window) CenterOnScreen() {
 	w.centered = true
 	// if window is currently visible, make it centered

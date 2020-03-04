@@ -15,6 +15,14 @@ type Window interface {
 	// true for a fullScreen window and false to unset this.
 	SetFullScreen(bool)
 
+	// Opacity returns the opacity of the window.
+	Opacity() float32
+	// SetOpacity modifies the window opacity
+	SetOpacity(float32)
+
+	// Sets the window position
+	SetPosition(int, int)
+
 	// Resize this window to the requested content size.
 	// The result may not be exactly as desired due to various desktop or
 	// platform constraints.
