@@ -50,7 +50,7 @@ func main() {
 	a := app.NewWithID("io.fyne.demo")
 	a.SetIcon(theme.FyneLogo())
 
-	w := a.NewWindow("Fyne Demo", true)
+	w := a.NewWindow("Fyne Demo", true, false)
 	w.SetMainMenu(fyne.NewMainMenu(fyne.NewMenu("File",
 		fyne.NewMenuItem("New", func() { fmt.Println("Menu New") }),
 		// a quit item will be appended to our first menu

@@ -1059,11 +1059,11 @@ func (w *window) waitForEvents() {
 	w.eventWait.Wait()
 }
 
-func (d *gLDriver) CreateWindow(title string, decorate bool) fyne.Window {
-	return d.createWindow(title, decorate)
+func (d *gLDriver) CreateWindow(title string, decorate bool, floating bool) fyne.Window {
+	return d.createWindow(title, decorate, floating)
 }
 
-func (d *gLDriver) createWindow(title string, decorate bool) fyne.Window {
+func (d *gLDriver) createWindow(title string, decorate bool, floating bool) fyne.Window {
 	var ret *window
 	if title == "" {
 		title = defaultTitle
@@ -1075,6 +1075,13 @@ func (d *gLDriver) createWindow(title string, decorate bool) fyne.Window {
 
 		// make the window hidden, we will set it up and then show it later
 		glfw.WindowHint(glfw.Visible, 0)
+
+		if floating {
+			glfw.WindowHint(glfw.Floating, 1)
+		} else {
+			glfw.WindowHint(glfw.Floating, 0)
+		}
+
 		if decorate {
 			glfw.WindowHint(glfw.Decorated, 1)
 		} else {
@@ -1121,7 +1128,7 @@ func (d *gLDriver) createWindow(title string, decorate bool) fyne.Window {
 }
 
 func (d *gLDriver) CreateSplashWindow() fyne.Window {
-	win := d.createWindow("", false)
+	win := d.createWindow("", false, false)
 	win.SetPadded(false)
 	win.CenterOnScreen()
 	return win

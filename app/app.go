@@ -39,8 +39,8 @@ func (app *fyneApp) UniqueID() string {
 	return app.uniqueID
 }
 
-func (app *fyneApp) NewWindow(title string, decorate bool) fyne.Window {
-	return app.driver.CreateWindow(title, decorate)
+func (app *fyneApp) NewWindow(title string, decorate bool, floating bool) fyne.Window {
+	return app.driver.CreateWindow(title, decorate, floating)
 }
 
 func (app *fyneApp) Run() {
